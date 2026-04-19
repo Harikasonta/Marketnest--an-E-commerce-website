@@ -62,8 +62,7 @@ cd client
 npm start
 
 📸 Screenshots
-![Homepage](images/homepage.png)
-![Product Page](images/product.png)
+All project related screenshots are in outputs folder.
 
 🔐 Security Note
 .env file is excluded from GitHub for security
