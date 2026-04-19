@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+
+  <style>
+    .qr-box {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .qr-box img {
+      width: 200px;
+      border: 2px solid #ddd;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container mt-5 page-shell">
+  <h2>📦 Delivery Details</h2>
+
+  <div class="card p-4 checkout-panel">
+
+    <!-- USER DETAILS -->
+    <input type="text" id="name" class="form-control mb-2" placeholder="Full Name">
+    <input type="tel" id="phone" class="form-control mb-2" placeholder="10-digit Phone Number" maxlength="10" inputmode="numeric">
+    <textarea id="address" class="form-control mb-2" rows="4" placeholder="Full Address: house number, street/area, city, pincode"></textarea>
+    <div class="form-text mb-2">
+      Use a valid 10-digit Indian phone number and a complete delivery address.
+    </div>
+
+    <!-- PAYMENT -->
+    <h5 class="mt-3">💳 Payment Method</h5>
+
+    <select id="payment" class="form-control mb-3" onchange="handlePaymentChange()">
+      <option value="COD">Cash on Delivery</option>
+      <option value="UPI">UPI (Scan QR)</option>
+    </select>
+
+    <!-- ✅ UPI QR SECTION -->
+    <div id="qrSection" class="qr-box">
+      <p class="fw-bold">Scan & Pay</p>
+
+      <!-- 🔴 Replace with your real QR -->
+      <img src="images/upi%20qr.jpeg" alt="UPI QR">
+
+      <p class="text-muted mt-2">After payment, click Place Order</p>
+    </div>
+
+    <!-- PLACE ORDER -->
+    <button onclick="placeOrder()" class="btn btn-success w-100 mt-3">
+      Place Order
+    </button>
+
+  </div>
+</div>
+
+<script src="js/checkout.js"></script>
+
+<script>
+// ================= SHOW/HIDE QR =================
+function handlePaymentChange() {
+  const method = document.getElementById("payment").value;
+  const qr = document.getElementById("qrSection");
+
+  if (method === "UPI") {
+    qr.style.display = "block";
+  } else {
+    qr.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

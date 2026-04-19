@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/site.css">
+
+  <style>
+    .nav-link:hover {
+      color: #0dcaf0 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ✅ CLEAN NAVBAR -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">E-Shop</a>
+
+    <div class="d-flex align-items-center gap-4">
+
+      <!-- Home -->
+      <a class="nav-link text-white" href="index.html">Home</a>
+
+      <!-- Products -->
+      <a class="nav-link text-white" href="products.html">Products</a>
+
+      <!-- Wishlist -->
+      <a class="nav-link text-white" href="wishlist.html">
+        <i class="fa fa-heart me-1"></i> Wishlist
+      </a>
+
+      <!-- Cart -->
+      <a class="nav-link text-info" href="cart.html">
+        <i class="fa fa-shopping-cart me-1"></i> Cart
+      </a>
+
+      <!-- Profile -->
+      <a class="nav-link text-white" href="profile.html">
+        <i class="fa fa-user me-1"></i>
+        <span id="username">Hi, User</span>
+      </a>
+
+      <a class="btn btn-info btn-sm fw-bold" href="ai/ai.html">AI Mode</a>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4 page-shell">
+  <h2>🛒 My Cart</h2>
+
+  <div id="cartItems" class="row"></div>
+
+  <div class="mt-4 text-end">
+    <h4>Total: ₹<span id="total">0</span></h4>
+  </div>
+
+  <div class="text-end mt-3">
+    <button id="orderBtn" onclick="goToCheckout()" class="btn btn-success">
+      Proceed to Order
+    </button>
+  </div>
+</div>
+
+<script src="js/cart.js"></script>
+
+<script>
+// ✅ USER NAME DISPLAY
+const user = JSON.parse(localStorage.getItem("user"));
+
+if (user && user.name) {
+  document.getElementById("username").innerText = "Hi, " + user.name;
+}
+</script>
+
+</body>
+</html>
